@@ -246,3 +246,60 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 });
+
+function cleanTextForExport(text) {
+    return text
+        .replace(/(?<=\w)\s(?=\w)/g, '') // remove letter spacing
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+// DOC export via server
+document.getElementById('downloadDocBtn').addEventListener('click', async () => {
+    if (!currentSummary) return;
+
+    const plaintext = currentSummary.replace(/<[^>]*>/g, '');
+    const cleanSummary = cleanTextForExport(plaintext);
+
+    const res = await fetch('/api/download_doc', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ summary: cleanSummary})
+    });
+
+    if (!res.ok) {
+        alert('Failed to generate DOC file.');
+        return;
+    }
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'video-summary.docx';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+});
+
+document.getElementById('downloadTextBtn').addEventListener('click', () => {
+    if (!currentSummary) return;
+
+    // Remove HTML + fix spacing
+    const plaintext = currentSummary.replace(/<[^>]*>/g, '');
+    const cleanSummary = cleanTextForExport(plaintext);
+
+    // Create text file
+    const blob = new Blob([cleanSummary], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'video-summary.txt';
+
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+});

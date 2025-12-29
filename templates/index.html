@@ -6,6 +6,7 @@
     <title>TubeTales - AI Video Summarizer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
    
@@ -19,7 +20,7 @@
                             <polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/>
                         </svg>
                     </div>
-                    <span class="logo-text">TubeTales</span>
+                    <span class="logo-text">SummifyAI</span>
                 </div>
                 
                 <nav class="nav-desktop">
@@ -30,7 +31,6 @@
                 </nav>
                 
                 <div class="nav-buttons">
-                    <button class="btn-secondary">Sign In</button>
                     <a href="#summarizer" class="btn-primary">Get Started</a>
                 </div>
                 
@@ -165,7 +165,10 @@
                                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                                     </svg>
                                 </button>
-                                <button class="action-btn" id="downloadBtn" title="Download as text">
+                                    <button class="action-btn" id="downloadBtn" title="Download as text">
+                                    <button id="downloadTextBtn" class="action-btn" title="Download as TEXT">TEXT</button>
+                                    <button id="downloadDocBtn" class="action-btn" title="Download as DOC">DOC</button>
+
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                         <polyline points="7,10 12,15 17,10"/>
@@ -194,7 +197,7 @@
         <div class="container">
             <div class="features-header">
                 <h2 class="section-title">
-                    Why Choose <span class="gradient-text">TubeTales</span>?
+                    Why Choose <span class="gradient-text">SummifyAI</span>?
                 </h2>
                 <p class="section-subtitle">
                     Experience the power of AI-driven video summarization with features designed for modern learners and professionals.
@@ -253,7 +256,7 @@
                         </svg>
                     </div>
                     <h3 class="feature-title">Export Ready</h3>
-                    <p class="feature-description">Download summaries as text, PDF, or share directly with your team.</p>
+                    <p class="feature-description">Download summaries as text, word file, or share directly with your team.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -264,8 +267,6 @@
                             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                         </svg>
                     </div>
-                    <h3 class="feature-title">Multi-Language</h3>
-                    <p class="feature-description">Support for videos in multiple languages with accurate translations.</p>
                 </div>
             </div>
         </div>
@@ -283,7 +284,7 @@
                                 <polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/>
                             </svg>
                         </div>
-                        <span class="logo-text">TubeTales</span>
+                        <span class="logo-text">SummifyAI</span>
                     </div>
                     <p class="footer-description">
                         Transform your learning experience with AI-powered YouTube video summaries. 
@@ -321,7 +322,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 TubeTales. All rights reserved. Made with ❤️ for learners everywhere.</p>
+                <p>&copy; 2025 SummifyAI. All rights reserved. Made with ❤️ for learners everywhere.</p>
             </div>
         </div>
     </footer>

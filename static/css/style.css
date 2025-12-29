@@ -794,3 +794,17 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #6d28d9, #1d4ed8);
 }
+
+
+/* Fix spacing between download buttons */
+.output-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;              /* <-- spacing between buttons */
+    flex-wrap: wrap;        /* allows wrap on small screens */
+}
+
+.output-actions .action-btn {
+    padding: 6px 10px;
+    min-width: auto;
+}
