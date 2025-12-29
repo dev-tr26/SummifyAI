@@ -1,0 +1,7 @@
+youtube_transcript_api==1.2.3
+python-dotenv
+pathlib
+gunicorn
+flask
+flask-cors
+requests
